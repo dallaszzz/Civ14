@@ -144,7 +144,6 @@ tiles-sand-floor-jungle = sand floor jungle
 tiles-grass-planet-floor-taiga = grass planet floor taiga
 tiles-grass-planet-floor-semiarid = grass planet floor semiarid
 tiles-grass-planet-floor-jungle = grass planet floor jungle
-tiles-snow-sand = snowy sand
 tiles-snowgrass-taiga = snowy grass taiga
 tiles-snowgrass-temperate = snowy grass temperate
 tiles-snowdirt-taiga = snowy grass taiga

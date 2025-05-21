@@ -227,11 +227,6 @@
   biome: Tundra
   suffix: Tundra
 
-- type: tile
-  id: FloorSnowSand
-  parent: FloorSnow
-  name: tiles-snow-sand
-
 # Snow
 - type: tile
   id: FloorSnowGrass
