@@ -1549,30 +1549,35 @@
 
 - type: tile
   id: FloorDirtTaiga
+  name: tiles-dirt-floor-taiga
   parent: FloorDirt
   biome: Taiga
   suffix: Taiga
 
 - type: tile
   id: FloorDirtSemiArid
+  name: tiles-dirt-floor-semiarid
   parent: FloorDirt
   biome: SemiArid
   suffix: SemiArid
 
 - type: tile
   id: FloorDirtDesert
+  name: tiles-dirt-floor-desert
   parent: FloorDirt
   biome: Desert
   suffix: Desert
 
 - type: tile
   id: FloorDirtSavanna
+  name: tiles-dirt-floor-savanna
   parent: FloorDirt
   biome: Savanna
   suffix: Savanna
 
 - type: tile
   id: FloorDirtJungle
+  name: tiles-dirt-floor-jungle
   parent: FloorDirt
   biome: Jungle
   suffix: Jungle
