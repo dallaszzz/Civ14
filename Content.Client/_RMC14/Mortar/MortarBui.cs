@@ -1,4 +1,4 @@
-﻿using Content.Shared._RMC14.Mortar;
+using Content.Shared._RMC14.Mortar;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
@@ -45,7 +45,6 @@ public sealed class MortarBui(EntityUid owner, Enum uiKey) : BoundUserInterface(
                 SendPredictedMessage(new MortarDialBuiMsg((Parse(_window.DialX), Parse(_window.DialY))));
         }
 
-        _window.ViewCameraButton.OnPressed += _ => SendPredictedMessage(new MortarViewCamerasMsg());
     }
 
     public void Refresh()

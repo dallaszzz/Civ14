@@ -15,12 +15,10 @@
                 <Button Name="SetTargetButton" Access="Public" StyleClasses="OpenBoth"
                         Text="{Loc 'rmc-mortar-target-set'}" Margin="0 5 0 0" />
             </BoxContainer>
-            <Button Name="ViewCameraButton" Access="Public" StyleClasses="OpenBoth"
-                    Text="{Loc 'rmc-mortar-view-camera'}" Margin="10 0" />
         </BoxContainer>
-        <ui:BlueHorizontalSeparator Margin="0 10" />
         <BoxContainer Orientation="Horizontal">
             <BoxContainer Orientation="Vertical">
+                <Label Name="MaxDialLabel" Access="Public" VerticalAlignment="Top" Margin="0 5" />
                 <BoxContainer Name="DialXContainer" Access="Public" Orientation="Horizontal">
                     <Label Text="{Loc 'rmc-mortar-offset-x'}" Margin="0 0 5 0" />
                 </BoxContainer>
@@ -30,8 +28,6 @@
                 <Button Name="SetOffsetButton" Access="Public" StyleClasses="OpenBoth"
                         Text="{Loc 'rmc-mortar-offset-set'}" Margin="0 5 0 0" />
             </BoxContainer>
-            <Label Name="MaxDialLabel" Access="Public" VerticalAlignment="Top"
-                   Margin="10 0" />
         </BoxContainer>
     </BoxContainer>
 </controls:MortarWindow>
