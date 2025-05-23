@@ -41,14 +41,6 @@
   - type: Mortar
   - type: Damageable
     damageContainer: Inorganic
-  # - type: Destructible
-  #   thresholds:
-  #   - trigger:
-  #       !type:DamageTrigger
-  #       damage: 100
-  #     behaviors:
-  #     - !type:DoActsBehavior
-  #       acts: [ "Destruction" ]
   - type: UserInterface
     interfaces:
       enum.MortarUiKey.Key:
@@ -62,11 +54,11 @@
         mortar:
           Item: { state: mortar_m402_carry }
           Deployed: { state: mortar_m402 }
-  # - type: MeleeSound
-  #   soundGroups:
-  #     Brute:
-  #       path:
-  #         "/Audio/_RMC14/Structures/metalhit.ogg"
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Effects/metal_break1.ogg"
 
 - type: entity
   abstract: true
@@ -93,15 +85,14 @@
   - type: Sprite
     sprite: _RMC14/Objects/Weapons/mortar.rsi
     state: mortar_ammo_he
-  # - type: Explosive
-  #   explosionType: RMCMortar
-  #   maxIntensity: 30.1 # max 150 brute, 150 burn
-  #   intensitySlope: 5
-  #   totalIntensity: 800
-  #   canCreateVacuum: false
-  # - type: CMExplosionEffect
-  # - type: RMCScorchEffect
   - type: MortarShell
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 10
+    intensitySlope: 3
+    totalIntensity: 120
+    canCreateVacuum: false
+    deleteAfterExplosion: true
 
 - type: entity
   parent: RMCMortarShellBase
@@ -114,17 +105,7 @@
   - type: Sprite
     sprite: _RMC14/Objects/Weapons/mortar.rsi
     state: mortar_ammo_inc
-  # - type: Explosive
-  #   explosionType: RMCMortar
-  #   maxIntensity: 0
-  #   intensitySlope: 0
-  #   totalIntensity: 0
-  #   canCreateVacuum: false
-  # - type: RMCScorchEffect
   - type: MortarShell
-  # - type: TileFireOnTrigger
-  #   spawn: RMCTileFireGreen
-  #   range: 5
 
 - type: entity
   id: RMCMortarFlare

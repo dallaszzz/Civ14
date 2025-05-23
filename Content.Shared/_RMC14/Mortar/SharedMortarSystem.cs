@@ -10,6 +10,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.UserInterface;
+using Content.Shared.Explosion.EntitySystems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -38,6 +39,7 @@ public abstract class SharedMortarSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly SharedExplosionSystem _explosion = default!;
 
     private EntityQuery<TransformComponent> _transformQuery;
 
@@ -219,9 +221,6 @@ public abstract class SharedMortarSystem : EntitySystem
         if (!CanLoadPopup(mortar, (shellId, shell), user, out var travelTime, out var coordinates))
             return;
 
-        //_adminLogs.Add(LogType.RMCMortar, LogImpact.High, $"Mortar {ToPrettyString(mortar)} shell {ToPrettyString(shellId)} shot by {ToPrettyString(user)} aimed at {coordinates}");
-        // Needs logging figured out for civ
-
         var container = _container.EnsureContainer<Container>(mortar, mortar.Comp.ContainerId);
         if (!_container.Insert(shellId, container))
             return;
@@ -295,26 +294,6 @@ public abstract class SharedMortarSystem : EntitySystem
     {
         args.Cancelled = true;
     }
-
-    //private void OnMortarCameraShellLand(Entity<MortarCameraShellComponent> ent, ref MortarShellLandEvent args)
-    //{
-    //    _audio.PlayPvs(ent.Comp.Sound, args.Coordinates);
-
-    //    var anchored = _rmcMap.GetAnchoredEntitiesEnumerator(args.Coordinates);
-    //    while (anchored.MoveNext(out var uid))
-    //    {
-    //        if (HasComp<MortarCameraComponent>(uid))
-    //            QueueDel(uid);
-    //    }
-
-    //    var coords = _transform.ToMapCoordinates(args.Coordinates);
-    //    Spawn(ent.Comp.Flare, coords);
-    //    var camera = Spawn(ent.Comp.Camera, coords);
-
-
-    //    var (x, y) = coords.Position;
-    //    _metaData.SetEntityName(camera, Loc.GetString("rmc-mortar-camera-name", ("x", (int) x), ("y", (int) y)));
-    //}
 
     private void OnMortarTargetBui(Entity<MortarComponent> mortar, ref MortarTargetBuiMsg args)
     {
@@ -461,10 +440,7 @@ public abstract class SharedMortarSystem : EntitySystem
                 var ev = new MortarShellLandEvent(active.Coordinates);
                 RaiseLocalEvent(uid, ref ev);
 
-                //_rmcExplosion.TriggerExplosive(uid);
-
-                if (!EntityManager.IsQueuedForDeletion(uid))
-                    QueueDel(uid);
+                _explosion.TriggerExplosive(uid);
             }
         }
     }

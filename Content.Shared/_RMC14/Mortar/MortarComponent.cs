@@ -67,13 +67,13 @@ public sealed partial class MortarComponent : Component
     public string DeployedState = "mortar_m402";
 
     [DataField, AutoNetworkedField]
-    public SoundSpecifier? DeploySound = new SoundPathSpecifier("/Audio/_RMC14/Weapons/gun_mortar_unpack.ogg");
+    public SoundSpecifier? DeploySound = new SoundPathSpecifier("/Audio/_RMC/Weapons/gun_mortar_unpack.ogg");
 
     [DataField, AutoNetworkedField]
-    public SoundSpecifier? ReloadSound = new SoundPathSpecifier("/Audio/_RMC14/Weapons/gun_mortar_reload.ogg");
+    public SoundSpecifier? ReloadSound = new SoundPathSpecifier("/Audio/_RMC/Weapons/gun_mortar_reload.ogg");
 
     [DataField, AutoNetworkedField]
-    public SoundSpecifier? FireSound = new SoundPathSpecifier("/Audio/_RMC14/Weapons/gun_mortar_fire.ogg", AudioParams.Default.AddVolume(4));
+    public SoundSpecifier? FireSound = new SoundPathSpecifier("/Audio/_RMC/Weapons/gun_mortar_fire.ogg", AudioParams.Default.AddVolume(4));
 
     [DataField, AutoNetworkedField]
     public TimeSpan? Cooldown;
