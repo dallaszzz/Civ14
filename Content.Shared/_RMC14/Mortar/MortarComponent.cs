@@ -61,10 +61,10 @@ public sealed partial class MortarComponent : Component
     public string AnimationLayer = "mortar";
 
     [DataField, AutoNetworkedField]
-    public string AnimationState = "mortar_m402_fire";
+    public string AnimationState = "mortar_fire";
 
     [DataField, AutoNetworkedField]
-    public string DeployedState = "mortar_m402";
+    public string DeployedState = "mortar_deploy";
 
     [DataField, AutoNetworkedField]
     public SoundSpecifier? DeploySound = new SoundPathSpecifier("/Audio/_RMC/Weapons/gun_mortar_unpack.ogg");
@@ -82,7 +82,7 @@ public sealed partial class MortarComponent : Component
     public TimeSpan LastFiredAt;
 
     [DataField, AutoNetworkedField]
-    public EntProtoId Drop = "RMCMortarKit";
+    public EntProtoId Drop = "MortarKit";
 
     [DataField, AutoNetworkedField]
     public int[] FireRandomOffset = new[] { -1, 0, 0, 1 };

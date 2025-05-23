@@ -1,15 +1,15 @@
 - type: entity
   parent: BaseItem
-  id: RMCMortarKit
-  name: M402 mortar portable kit
+  id: MortarKit
+  name: mortar portable kit
   suffix: Classic
   description: A manual, crew-operated mortar system intended to rain down 80mm goodness on anything it's aimed at. Needs to be set down first.
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Weapons/mortar/classic.rsi
+    sprite: Civ14/Objects/Mortars/mortar.rsi
     layers:
     - map: [ "mortar" ]
-      state: mortar_m402_carry
+      state: mortar_carry
   - type: Fixtures
     fixtures:
       fix1:
@@ -52,8 +52,8 @@
     visuals:
       enum.MortarVisualLayers.State:
         mortar:
-          Item: { state: mortar_m402_carry }
-          Deployed: { state: mortar_m402 }
+          Item: { state: mortar_carry }
+          Deployed: { state: mortar_deploy }
   - type: MeleeSound
     soundGroups:
       Brute:
@@ -63,63 +63,63 @@
 - type: entity
   abstract: true
   parent: BaseItem
-  id: RMCMortarShellBase
+  id: MortarAmmoBase
   name: 80mm mortar shell
   description: An unlabeled 80mm mortar shell, probably a casing.
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Weapons/mortar.rsi
-    state: mortar_ammo_cas
+    sprite: Civ14/Objects/Mortars/shells.rsi
+    state: mortar_ammo_he
   - type: Item
     size: Huge
   - type: MortarShell
 
 - type: entity
-  parent: RMCMortarShellBase
-  id: RMCMortarShellHE
+  parent: MortarAmmoBase
+  id: MortarShellHE
   name: 80mm high explosive mortar shell
   description: An 80mm mortar shell, loaded with a high explosive charge.
   components:
   - type: Item
     heldPrefix: he
   - type: Sprite
-    sprite: _RMC14/Objects/Weapons/mortar.rsi
+    sprite: Civ14/Objects/Mortars/shells.rsi
     state: mortar_ammo_he
   - type: MortarShell
   - type: Explosive
     explosionType: Default
-    maxIntensity: 10
+    maxIntensity: 10 # these values need tuning to im sure
     intensitySlope: 3
     totalIntensity: 120
     canCreateVacuum: false
     deleteAfterExplosion: true
 
-- type: entity
-  parent: RMCMortarShellBase
-  id: RMCMortarShellIncendiary
-  name: 80mm incendiary mortar shell
-  description: An 80mm mortar shell, loaded with a Type B napalm charge. Perfect for long-range area denial.
-  components:
-  - type: Item
-    heldPrefix: inc
-  - type: Sprite
-    sprite: _RMC14/Objects/Weapons/mortar.rsi
-    state: mortar_ammo_inc
-  - type: MortarShell
+# - type: entity
+#   parent: RMCMortarShellBase
+#   id: RMCMortarShellIncendiary
+#   name: 80mm incendiary mortar shell
+#   description: An 80mm mortar shell, loaded with a Type B napalm charge. Perfect for long-range area denial.
+#   components:
+#   - type: Item
+#     heldPrefix: inc
+#   - type: Sprite
+#     sprite: _RMC14/Objects/Weapons/mortar.rsi
+#     state: mortar_ammo_inc
+#   - type: MortarShell
 
-- type: entity
-  id: RMCMortarFlare
-  name: illumination flare
-  description: It's really bright, and unreachable.
-  components:
-  - type: Transform
-    anchored: true
-  - type: Physics
-    bodyType: Static
-    canCollide: false
-  - type: PointLight
-    enabled: true
-    radius: 5
-  - type: RandomTimedDespawn
-    min: 270
-    max: 330
+# - type: entity
+#   id: RMCMortarFlare
+#   name: illumination flare
+#   description: It's really bright, and unreachable.
+#   components:
+#   - type: Transform
+#     anchored: true
+#   - type: Physics
+#     bodyType: Static
+#     canCollide: false
+#   - type: PointLight
+#     enabled: true
+#     radius: 5
+#   - type: RandomTimedDespawn
+#     min: 270
+#     max: 330
