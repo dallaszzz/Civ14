@@ -18,34 +18,11 @@
       price: 100
 
 - type: entity
-  parent: CrateWood
-  id: CrateWoodRollerbeds
-  name: rollerbed crate
-  suffix: rollerbeds
+  parent: CrateBaseWeldable
+  id: CrateMilitary
+  name: military crate
   components:
-    - type: StorageFill
-      contents:
-        - id: CheapRollerBedSpawnFolded
-          amount: 5
-
-- type: entity
-  parent: CrateWood
-  id: CrateWoodBarbedwire
-  name: barbed wire crate
-  suffix: barbed wire
-  components:
-    - type: StorageFill
-      contents:
-        - id: MaterialBarbwire5
-          amount: 5
-
-- type: entity
-  parent: CrateWood
-  id: CrateWoodSandbags
-  name: sandbag crate
-  suffix: sandbags
-  components:
-    - type: StorageFill
-      contents:
-        - id: MaterialSandbags1
-          amount: 10
+    - type: Icon
+      sprite: Civ14/Objects/Storage/green_crate.rsi
+    - type: Sprite
+      sprite: Civ14/Objects/Storage/green_crate.rsi
