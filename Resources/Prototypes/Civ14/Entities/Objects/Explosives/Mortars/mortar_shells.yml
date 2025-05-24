@@ -2,8 +2,7 @@
   abstract: true
   parent: BaseItem
   id: MortarAmmoBase
-  name: 80mm mortar shell
-  description: An unlabeled 80mm mortar shell, probably a casing.
+  name: base mortar shell
   components:
   - type: Sprite
     sprite: Civ14/Objects/Mortars/shells.rsi
@@ -15,11 +14,10 @@
 - type: entity
   parent: MortarAmmoBase
   id: MortarShellHE
-  name: 80mm high explosive mortar shell
-  description: An 80mm mortar shell, loaded with a high explosive charge.
+  name: high explosive mortar shell
+  description: A mortar shell packed with high explosive. Drop into a mortar tube to activate.
   components:
   - type: Item
-    heldPrefix: he
   - type: Sprite
     sprite: Civ14/Objects/Mortars/shells.rsi
     state: mortar_ammo_he

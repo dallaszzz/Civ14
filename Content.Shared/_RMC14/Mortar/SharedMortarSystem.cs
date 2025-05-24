@@ -416,10 +416,10 @@ public abstract class SharedMortarSystem : EntitySystem
             {
                 active.Warned = true;
                 var coordinates = _transform.ToMapCoordinates(active.Coordinates);
-                PopupWarning(coordinates,
-                    active.WarnRange,
-                    "rmc-mortar-shell-warning",
-                    "rmc-mortar-shell-warning-above");
+                //PopupWarning(coordinates,
+                //    active.WarnRange,
+                //    "rmc-mortar-shell-warning",
+                //    "rmc-mortar-shell-warning-above");
                 _audio.PlayPvs(active.WarnSound, active.Coordinates);
             }
 
@@ -427,10 +427,10 @@ public abstract class SharedMortarSystem : EntitySystem
             {
                 active.ImpactWarned = true;
                 var coordinates = _transform.ToMapCoordinates(active.Coordinates);
-                PopupWarning(coordinates,
-                    active.WarnRange,
-                    "rmc-mortar-shell-impact-warning",
-                    "rmc-mortar-shell-impact-warning-above");
+                //PopupWarning(coordinates,
+                //    active.WarnRange,
+                //    "rmc-mortar-shell-impact-warning",
+                //    "rmc-mortar-shell-impact-warning-above");
             }
 
             if (time >= active.LandAt)

@@ -50,10 +50,6 @@ public sealed class MortarSystem : SharedMortarSystem
         var mortarCoordinates = _transform.GetMapCoordinates(mortar);
         coordinates = new MapCoordinates(Vector2.Zero, mortarCoordinates.MapId);
 
-        //_rmcPlanet.TryGetOffset(coordinates, out var offset);
-        //target -= offset;
-        // RMC had a system to offset the position used for mortars based on set values per map which i am removing for now
-
         coordinates = coordinates.Offset(target);
         travelTime = shell.Comp.TravelDelay;
 

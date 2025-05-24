@@ -34,7 +34,7 @@ public sealed partial class MortarComponent : Component
     public Vector2i Dial;
 
     [DataField, AutoNetworkedField]
-    public TimeSpan FireDelay = TimeSpan.FromSeconds(9);
+    public TimeSpan FireDelay = TimeSpan.FromSeconds(4); // original was 9
 
     [DataField, AutoNetworkedField]
     public int TilesPerOffset = 20;
@@ -85,5 +85,5 @@ public sealed partial class MortarComponent : Component
     public EntProtoId Drop = "MortarKit";
 
     [DataField, AutoNetworkedField]
-    public int[] FireRandomOffset = new[] { -1, 0, 0, 1 };
+    public int[] FireRandomOffset = new[] { -2, 0, 0, 2 }; // used to be -1 0 0 1
 }

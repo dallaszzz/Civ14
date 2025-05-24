@@ -1,4 +1,4 @@
-﻿using Robust.Shared.GameStates;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._RMC14.Mortar;
 
@@ -10,10 +10,7 @@ public sealed partial class MortarShellComponent : Component
     public TimeSpan LoadDelay = TimeSpan.FromSeconds(1.5);
 
     [DataField, AutoNetworkedField]
-    public TimeSpan TravelDelay = TimeSpan.FromSeconds(4.5);
-
-    [DataField, AutoNetworkedField]
-    public TimeSpan WarshipTravelDelay = TimeSpan.FromSeconds(0.5);
+    public TimeSpan TravelDelay = TimeSpan.FromSeconds(8); //used to be 4.5
 
     [DataField, AutoNetworkedField]
     public TimeSpan ImpactWarningDelay = TimeSpan.FromSeconds(2.5);
