@@ -1,0 +1,31 @@
+- type: soundCollection
+  id: CivExplosion
+  files:
+  - /Audio/Civ/Weapons/Explosives/Explosions/explosion1.ogg
+  - /Audio/Civ/Weapons/Explosives/Explosions/explosion2.ogg
+  - /Audio/Civ/Weapons/Explosives/Explosions/explosion3.ogg
+  - /Audio/Civ/Weapons/Explosives/Explosions/explosion4.ogg
+  - /Audio/Civ/Weapons/Explosives/Explosions/explosion5.ogg
+  - /Audio/Civ/Weapons/Explosives/Explosions/explosion6.ogg
+
+- type: soundCollection
+  id: CivExplosionDistant
+  files:
+  - /Audio/Civ/Weapons/Explosives/Explosions/explo_distant01.ogg
+  - /Audio/Civ/Weapons/Explosives/Explosions/explo_distant02.ogg
+  - /Audio/Civ/Weapons/Explosives/Explosions/explo_distant03.ogg
+  - /Audio/Civ/Weapons/Explosives/Explosions/explo_distant04.ogg
+  - /Audio/Civ/Weapons/Explosives/Explosions/explo_distant05.ogg
+  - /Audio/Civ/Weapons/Explosives/Explosions/explo_distant06.ogg
+  - /Audio/Civ/Weapons/Explosives/Explosions/explo_distant07.ogg
+  - /Audio/Civ/Weapons/Explosives/Explosions/explo_distant08.ogg
+
+- type: soundCollection
+  id: CivExplosionHEGrenade
+  files:
+  - /Audio/Civ/Weapons/Explosives/Explosions/HEGrenade.ogg
+
+- type: soundCollection
+  id: CivExplosionFragGrenade
+  files:
+  - /Audio/Civ/Weapons/Explosives/Explosions/FragGrenade.ogg
