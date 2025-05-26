@@ -151,3 +151,13 @@
       contents:
         - id: civ13_magazine_belt_(7.62x51mm)
           amount: 10
+
+- type: entity
+  parent: CrateMilitary
+  id: CrateMilitaryMortarAmmo
+  name: Mortar ammo crate
+  components:
+    - type: StorageFill
+      contents:
+        - id: MortarShellHE
+          amount: 10

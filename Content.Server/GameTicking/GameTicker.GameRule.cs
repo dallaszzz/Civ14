@@ -313,15 +313,20 @@ public sealed partial class GameTicker
         }
     }
 
+    /// <summary>
+    /// Sets the game preset for the selected map if required, or starts any delayed game rules whose start time has elapsed.
+    /// </summary>
     private void UpdateGameRules()
     {
 
         if (_gameMapManager.GetSelectedMap() is { } mapPrototype)
         {
             var map = mapPrototype;
-            if (map.FixedPreset != "")
+            if (map.FixedPreset != "" && map.FixedPresetInitialised == false)
             {
+                _sawmill.Info("Set game preset to " + map.FixedPreset);
                 SetGamePreset(map.FixedPreset);
+                map.FixedPresetInitialised = true;
             }
         }
         else

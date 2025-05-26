@@ -18,7 +18,7 @@
         - type: NpcFactionMember
           factions:
             - France
-        - type: ShowFrenchFactionIcons
+        - type: ShowFactionIcons
           factionIcon: FrenchFaction
 
 - type: playTimeTracker
@@ -50,10 +50,11 @@
   special:
     - !type:AddComponentSpecial
       components:
+        - type: MedievalAccent
         - type: NpcFactionMember
           factions:
             - France
-        - type: ShowFrenchFactionIcons
+        - type: ShowFactionIcons
           factionIcon: FrenchFaction
 
 - type: playTimeTracker
@@ -87,10 +88,11 @@
   special:
     - !type:AddComponentSpecial
       components:
+        - type: MedievalAccent
         - type: NpcFactionMember
           factions:
             - France
-        - type: ShowFrenchFactionIcons
+        - type: ShowFactionIcons
           factionIcon: FrenchFaction
 
 - type: playTimeTracker
@@ -134,10 +136,11 @@
   special:
     - !type:AddComponentSpecial
       components:
+        - type: MedievalAccent
         - type: NpcFactionMember
           factions:
             - France
-        - type: ShowFrenchFactionIcons
+        - type: ShowFactionIcons
           factionIcon: FrenchFaction
 
 - type: playTimeTracker
@@ -182,10 +185,11 @@
   special:
     - !type:AddComponentSpecial
       components:
+        - type: MedievalAccent
         - type: NpcFactionMember
           factions:
             - France
-        - type: ShowFrenchFactionIcons
+        - type: ShowFactionIcons
           factionIcon: FrenchFaction
 
 - type: playTimeTracker
@@ -256,10 +260,11 @@
   special:
     - !type:AddComponentSpecial
       components:
+        - type: MedievalAccent
         - type: NpcFactionMember
           factions:
             - France
-        - type: ShowFrenchFactionIcons
+        - type: ShowFactionIcons
           factionIcon: FrenchFaction
 
 - type: playTimeTracker

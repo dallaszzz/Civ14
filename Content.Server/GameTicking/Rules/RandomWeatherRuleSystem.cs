@@ -42,7 +42,12 @@ public sealed class RandomWeatherRuleSystem : GameRuleSystem<RandomWeatherRuleCo
 
     /// <summary>
     /// Picks a random weather from the component's AllowedWeathers list and sets it as the CurrentWeather.
+    /// <summary>
+    /// Selects and applies a random weather type from the allowed list to all maps, setting the weather for one hour if it has not already been initialised.
     /// </summary>
+    /// <remarks>
+    /// If the allowed weather list is empty, no weather is set. If the selected weather is not recognised, the operation is aborted. Weather is only set once per rule activation.
+    /// </remarks>
     public void PickRandomWeather(EntityUid uid, RandomWeatherRuleComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -70,7 +75,11 @@ public sealed class RandomWeatherRuleSystem : GameRuleSystem<RandomWeatherRuleCo
         }
         foreach (var mapId in _mapManager.GetAllMapIds())
         {
-            _weather.SetWeather(mapId, weather, endTime);
+            if (component.WeatherInitialised == false)
+            {
+                _weather.SetWeather(mapId, weather, endTime);
+                component.WeatherInitialised = true;
+            }
         }
     }
 

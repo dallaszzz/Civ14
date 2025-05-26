@@ -775,12 +775,12 @@
       slots:
         gun_magazine:
           name: Magazine
-          startingItem: civ13_magazine_default
+          startingItem: civ13_magazine_PM_Makarov_magazine_(9x18mm)
 
           priority: 2
           whitelist:
             tags:
-              - civ13_magazine_default
+              - civ13_magazine_PM_Makarov_magazine_(9x18mm)
           whitelistFailPopup: gun-magazine-whitelist-fail
         gun_chamber:
           name: Chamber

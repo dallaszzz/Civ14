@@ -18,9 +18,10 @@
         - type: NpcFactionMember
           factions:
             - SovietCW
-        - type: ShowSovietFactionIcons
+        - type: ShowFactionIcons
           factionIcon: SovietFaction
-
+          jobIcon: JobIconICpt
+          assignSquad: false
 - type: playTimeTracker
   id: JobSovietCWCaptain
 
@@ -34,7 +35,8 @@
     belt: civ13_pistol_Makarov_PM
     pocket2: civ13_magazine_PM_Makarov_magazine_(9x18mm)
     head: civ13_head_soviet_officer_cap
-    pocket1: FlashlightLanternMilitary
+    pocket1: Compass
+    ears: ClothingHeadsetSoviet
 
 # Sergeant
 
@@ -58,8 +60,10 @@
         - type: NpcFactionMember
           factions:
             - SovietCW
-        - type: ShowSovietFactionIcons
+        - type: ShowFactionIcons
           factionIcon: SovietFaction
+          jobIcon: JobIconISgt
+          assignSquad: true
 
 - type: playTimeTracker
   id: JobSovietCWSergeant
@@ -73,7 +77,8 @@
     head: civ13_head_soviet_pilotka
     belt: civ13_pistol_Makarov_PM
     pocket1: civ13_magazine_PM_Makarov_magazine_(9x18mm)
-    pocket2: FlashlightLanternMilitary
+    pocket2: Compass
+    ears: ClothingHeadsetSoviet
   inhand:
     - civ13_ar_AK_74
 
@@ -97,8 +102,10 @@
         - type: NpcFactionMember
           factions:
             - SovietCW
-        - type: ShowSovietFactionIcons
+        - type: ShowFactionIcons
           factionIcon: SovietFaction
+          jobIcon: JobIconRifleman
+          assignSquad: true
 
 - type: playTimeTracker
   id: JobSovietCWRifleman
@@ -113,6 +120,7 @@
     belt: ClothingWebbingSovietCWRifleman
     pocket1: FlashlightLanternMilitary
     pocket2: Gauze
+    ears: ClothingHeadsetSoviet
   inhand:
     - civ13_ar_AK_74
 
@@ -127,6 +135,7 @@
     head: civ13_head_soviet_helmet
     pocket1: FlashlightLanternMilitary
     pocket2: Gauze
+    ears: ClothingHeadsetSoviet
   inhand:
     - civ13_ar_AK_74
 
@@ -150,8 +159,10 @@
         - type: NpcFactionMember
           factions:
             - SovietCW
-        - type: ShowSovietFactionIcons
+        - type: ShowFactionIcons
           factionIcon: SovietFaction
+          jobIcon: JobIconMg
+          assignSquad: true
 
 - type: playTimeTracker
   id: JobSovietCWMachinegunner
@@ -167,6 +178,7 @@
     head: civ13_head_soviet_helmet
     pocket1: CombatKnife
     pocket2: Gauze
+    ears: ClothingHeadsetSoviet
   inhand:
     - civ13_mg_RPD_machine_gun
 
@@ -181,6 +193,7 @@
     head: civ13_head_soviet_ushanka_1
     pocket1: CombatKnife
     pocket2: Gauze
+    ears: ClothingHeadsetSoviet
   inhand:
     - civ13_mg_RPD_machine_gun
 
@@ -203,8 +216,10 @@
         - type: NpcFactionMember
           factions:
             - SovietCW
-        - type: ShowSovietFactionIcons
+        - type: ShowFactionIcons
           factionIcon: SovietFaction
+          jobIcon: JobIconMedic
+          assignSquad: false
 
 - type: playTimeTracker
   id: JobSovietCWMedic
@@ -220,5 +235,6 @@
     back: ClothingBackpackDuffelFilled
     pocket1: FlashlightLanternMilitary
     pocket2: civ13_magazine_AK_74_magazine_(5.45x39mm)
+    ears: ClothingHeadsetSoviet
   inhand:
     - civ13_ar_AK_74

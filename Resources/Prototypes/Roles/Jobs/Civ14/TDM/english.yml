@@ -18,7 +18,7 @@
         - type: NpcFactionMember
           factions:
             - England
-        - type: ShowEnglishFactionIcons
+        - type: ShowFactionIcons
           factionIcon: EnglishFaction
 
 - type: playTimeTracker
@@ -51,10 +51,11 @@
   special:
     - !type:AddComponentSpecial
       components:
+        - type: MedievalAccent
         - type: NpcFactionMember
           factions:
             - England
-        - type: ShowEnglishFactionIcons
+        - type: ShowFactionIcons
           factionIcon: EnglishFaction
 
 - type: playTimeTracker
@@ -88,10 +89,11 @@
   special:
     - !type:AddComponentSpecial
       components:
+        - type: MedievalAccent
         - type: NpcFactionMember
           factions:
             - England
-        - type: ShowEnglishFactionIcons
+        - type: ShowFactionIcons
           factionIcon: EnglishFaction
 
 - type: playTimeTracker
@@ -135,10 +137,11 @@
   special:
     - !type:AddComponentSpecial
       components:
+        - type: MedievalAccent
         - type: NpcFactionMember
           factions:
             - England
-        - type: ShowEnglishFactionIcons
+        - type: ShowFactionIcons
           factionIcon: EnglishFaction
 
 - type: playTimeTracker
@@ -182,10 +185,11 @@
   special:
     - !type:AddComponentSpecial
       components:
+        - type: MedievalAccent
         - type: NpcFactionMember
           factions:
             - England
-        - type: ShowEnglishFactionIcons
+        - type: ShowFactionIcons
           factionIcon: EnglishFaction
 
 - type: playTimeTracker
@@ -256,10 +260,11 @@
   special:
     - !type:AddComponentSpecial
       components:
+        - type: MedievalAccent
         - type: NpcFactionMember
           factions:
             - England
-        - type: ShowEnglishFactionIcons
+        - type: ShowFactionIcons
           factionIcon: EnglishFaction
 
 - type: playTimeTracker
