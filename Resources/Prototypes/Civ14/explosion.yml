@@ -13,8 +13,42 @@
   fireStates: 3
   sound:
     collection: CivExplosion
+    params:
+      volume: 0.8
   smallSound: 
      collection: CivExplosionSmall
+     params:
+       volume: 1
+  soundFar: 
+     collection: CivExplosionDistant
+     params:
+       volume: 1
+  smallSoundFar: 
+     collection: CivExplosionDistantFar
+     params:
+       volume: 1
+
+- type: explosion
+  id: CivGrenade
+  damagePerIntensity:
+    types:
+      Heat: 5
+      Blunt: 5
+      Piercing: 5
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+  sound:
+    collection: CivExplosionGrenade
+    params:
+      volume: 1
+  smallSound: 
+     collection: CivExplosionGrenade
+     params:
+      volume: 1
   soundFar: 
      collection: CivExplosionDistant
      params:

@@ -32,11 +32,7 @@
   - /Audio/Civ/Weapons/Explosives/Explosions/explo_distantfar02.ogg
 
 - type: soundCollection
-  id: CivExplosionHEGrenade
+  id: CivExplosionGrenade
   files:
   - /Audio/Civ/Weapons/Explosives/Explosions/hegrenade.ogg
-
-- type: soundCollection
-  id: CivExplosionFragGrenade
-  files:
   - /Audio/Civ/Weapons/Explosives/Explosions/fraggrenade.ogg

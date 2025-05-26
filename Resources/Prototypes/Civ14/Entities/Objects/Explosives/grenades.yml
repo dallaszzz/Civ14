@@ -5,7 +5,7 @@
   id: GrenadeSHG24
   components:
     - type: Explosive
-      explosionType: CivDefault
+      explosionType: CivGrenade
       maxIntensity: 5
       intensitySlope: 2
       totalIntensity: 30 # about a ~4 tile radius
@@ -48,7 +48,7 @@
   id: GrenadeM67
   components:
     - type: Explosive
-      explosionType: CivDefault
+      explosionType: CivGrenade
       maxIntensity: 5
       intensitySlope: 2
       totalIntensity: 30 # about a ~4 tile radius
@@ -90,7 +90,7 @@
   id: GrenadeF1
   components:
     - type: Explosive
-      explosionType: CivDefault
+      explosionType: CivGrenade
       maxIntensity: 5
       intensitySlope: 2
       totalIntensity: 30 # about a ~4 tile radius
@@ -132,7 +132,7 @@
   id: GrenadeRGD5
   components:
     - type: Explosive
-      explosionType: CivDefault
+      explosionType: CivGrenade
       maxIntensity: 5
       intensitySlope: 2
       totalIntensity: 30 # about a ~4 tile radius
