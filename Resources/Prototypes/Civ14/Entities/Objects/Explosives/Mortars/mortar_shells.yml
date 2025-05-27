@@ -23,7 +23,7 @@
       state: mortar_ammo_he
     - type: MortarShell
     - type: Explosive
-      explosionType: Default
+      explosionType: CivDefault
       maxIntensity: 10 # these values need tuning to im sure
       intensitySlope: 3
       totalIntensity: 120
