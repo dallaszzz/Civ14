@@ -13,20 +13,12 @@
   fireStates: 3
   sound:
     collection: CivExplosion
-    params:
-      volume: 0.8
   smallSound: 
      collection: CivExplosionSmall
-     params:
-       volume: 1
   soundFar: 
      collection: CivExplosionDistant
-     params:
-       volume: 1
   smallSoundFar: 
      collection: CivExplosionDistantFar
-     params:
-       volume: 1
 
 - type: explosion
   id: CivGrenade
@@ -43,17 +35,9 @@
   fireStates: 3
   sound:
     collection: CivExplosionGrenade
-    params:
-      volume: 1
   smallSound: 
      collection: CivExplosionGrenade
-     params:
-      volume: 1
   soundFar: 
      collection: CivExplosionDistant
-     params:
-       volume: 1
   smallSoundFar: 
      collection: CivExplosionDistantFar
-     params:
-       volume: 1
