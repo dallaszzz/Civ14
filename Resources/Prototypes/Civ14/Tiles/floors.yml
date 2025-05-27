@@ -1,6 +1,6 @@
 - type: tile
   id: FloorDirtDigged_1
-  name: tiles-dirt-floor
+  name: tiles-dirt-floor-digged
   sprite: /Textures/Tiles/dirt.png
   variants: 4
   placementVariants:
@@ -17,7 +17,7 @@
 
 - type: tile
   id: FloorDirtRock
-  name: tiles-dirt-floor
+  name: tiles-dirt-floor-rock
   sprite: /Textures/Tiles/dirt.png
   variants: 4
   placementVariants:
@@ -34,7 +34,7 @@
 
 - type: tile
   id: FloorDirtDigged_2
-  name: tiles-dirt-floor
+  name: tiles-dirt-floor-digged2
   sprite: /Textures/Tiles/dirt.png
   variants: 4
   placementVariants:
@@ -51,7 +51,7 @@
 
 - type: tile
   id: FloorDirtDigged_3
-  name: tiles-dirt-floor
+  name: tiles-dirt-floor-digged3
   sprite: /Textures/Tiles/dirt.png
   variants: 4
   placementVariants:
