@@ -1,4 +1,4 @@
-﻿version: 1 # Not used right now, whatever.
+version: 1 # Not used right now, whatever.
 binds:
   - function: UIClick
     type: State
@@ -589,4 +589,8 @@ binds:
   - function: MappingOpenContextMenu
     type: State
     key: MouseRight
+    canFocus: true
+  - function: LookZoom
+    type: State
+    key: Space
     canFocus: true
