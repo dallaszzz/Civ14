@@ -1,11 +1,8 @@
-using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Input;
 using Robust.Shared.Input.Binding;
-using Robust.Shared.Player;
-using Content.Shared.Civ14.LookZoom;
 
 
-namespace Content.Shared.Civ14.LookZoom;
+namespace Content.Client.Civ14.LookZoom;
 public sealed class LookZoomSystem : EntitySystem
 {
     public override void Initialize()
