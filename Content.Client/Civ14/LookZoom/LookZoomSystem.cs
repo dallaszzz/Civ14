@@ -31,6 +31,8 @@ public sealed class LookZoomSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<LookZoomComponent, LookZoomActivated<GetEyeOffsetRelayedEvent>>(UpdateLookZoom);
+
         CommandBinds.Builder
         .Bind(ContentKeyFunctions.LookZoom, InputCmdHandler.FromDelegate(OnLookZoomHandler, handle: false, outsidePrediction: false))
         .Register<LookZoomSystem>();
@@ -38,14 +40,14 @@ public sealed class LookZoomSystem : EntitySystem
 
     public void OnLookZoomHandler(ICommonSession? session)
     {
-        var entity = session?.AttachedEntity;
+        var uid = session?.AttachedEntity;
 
-        if (!TryComp<LookZoomComponent>(entity, out var comp))
+        if (!TryComp<LookZoomComponent>(uid, out var comp))
             return;
-
-        UpdateLookZoom(entity.Value);
+        var ev = new LookZoomActivated<T>;
+        RaiseLocalEvent(uid.Value, ref ev);
     }
-    public void UpdateLookZoom(EntityUid uid)
+    public void UpdateLookZoom(Entity<LookZoomComponent> uid, ref LookZoomActivated<GetEyeOffsetRelayedEvent> args)
     {
         if (!_handsSystem.TryGetActiveItem(uid, out var item))
             return;
@@ -60,6 +62,11 @@ public sealed class LookZoomSystem : EntitySystem
         if (offset == null)
             return;
 
-        eye.Offset += offset.Value;
+        args.Args.Offset += offset.Value;
     }
+
+    [ByRefEvent]
+    public sealed class LookZoomActivated<TEvent> : EntityEventArgs
+    {
+        
 }
