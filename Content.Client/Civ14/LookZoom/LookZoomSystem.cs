@@ -1,3 +1,4 @@
+#nullable enable
 using Content.Shared.Camera;
 using Content.Shared.Hands;
 using Content.Shared.Input;
@@ -15,6 +16,7 @@ using Robust.Shared.GameObjects;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Hands.Components;
 using Robust.Shared.Timing;
+using JetBrains.Annotations;
 
 
 namespace Content.Client.Civ14.LookZoom;
@@ -29,8 +31,6 @@ public sealed class LookZoomSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<EyeCursorOffsetComponent, HeldRelayedEvent<GetEyeOffsetRelayedEvent>>(UpdateLookZoom);
-
         CommandBinds.Builder
         .Bind(ContentKeyFunctions.LookZoom, InputCmdHandler.FromDelegate(OnLookZoomHandler, handle: false, outsidePrediction: false))
         .Register<LookZoomSystem>();
@@ -39,33 +39,27 @@ public sealed class LookZoomSystem : EntitySystem
     public void OnLookZoomHandler(ICommonSession? session)
     {
         var entity = session?.AttachedEntity;
-        if (entity is null)
-            return;
 
         if (!TryComp<LookZoomComponent>(entity, out var comp))
             return;
 
-        if (comp.CoolDown >= _timing.CurTime)
-            return;
-
-        comp.State = !comp.State;
-        comp.CoolDown = _timing.CurTime + TimeSpan.FromSeconds(0.5);
-        return;
-
+        UpdateLookZoom(entity.Value);
     }
-    public void UpdateLookZoom(Entity<EyeCursorOffsetComponent> entity, ref HeldRelayedEvent<GetEyeOffsetRelayedEvent> args)
+    public void UpdateLookZoom(EntityUid uid)
     {
-        var playerUid = _player.LocalEntity;
-        if (!TryComp<LookZoomComponent>(playerUid, out var comp))
+        if (!_handsSystem.TryGetActiveItem(uid, out var item))
             return;
 
-        if (comp.State == false)
+        if (!TryComp<EyeCursorOffsetComponent>(uid, out var comp))
             return;
 
-        var offset = _eyeOffset.OffsetAfterMouse(entity.Owner, null);
+        if (!TryComp<EyeComponent>(uid, out var eye))
+            return;
+
+        var offset = _eyeOffset.OffsetAfterMouse(uid, null);
         if (offset == null)
             return;
 
-        args.Args.Offset += offset.Value;
+        eye.Offset += offset.Value;
     }
 }
