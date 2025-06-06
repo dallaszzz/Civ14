@@ -1,4 +1,5 @@
 using Content.Shared._Stalker.Lay;
+using Robust.Shared.Timing;
 using System.Numerics;
 
 namespace Content.Client.Civ14.LookZoom;
@@ -10,8 +11,5 @@ public sealed partial class LookZoomComponent : Component
     public bool State = false;
 
     [DataField]
-    public TimeSpan CoolDown = TimeSpan.Zero;
-
-    [DataField]
-    public Vector2 SavedOffset;
+    public TimeSpan DelayedTime;
 }

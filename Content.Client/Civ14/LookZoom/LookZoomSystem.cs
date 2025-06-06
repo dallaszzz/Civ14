@@ -31,7 +31,7 @@ public sealed class LookZoomSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<LookZoomComponent, LookZoomActivated<GetEyeOffsetRelayedEvent>>(UpdateLookZoom);
+        SubscribeLocalEvent<EyeCursorOffsetComponent, HeldRelayedEvent<GetEyeOffsetRelayedEvent>>(UpdateLookZoom);
 
         CommandBinds.Builder
         .Bind(ContentKeyFunctions.LookZoom, InputCmdHandler.FromDelegate(OnLookZoomHandler, handle: false, outsidePrediction: false))
@@ -44,18 +44,23 @@ public sealed class LookZoomSystem : EntitySystem
 
         if (!TryComp<LookZoomComponent>(uid, out var comp))
             return;
-        var ev = new LookZoomActivated<T>;
-        RaiseLocalEvent(uid.Value, ref ev);
+
+        if (_timing.CurTime < comp.DelayedTime)
+            return;
+
+        comp.DelayedTime = _timing.CurTime + TimeSpan.FromSeconds(1);
+        comp.State = !comp.State;
     }
-    public void UpdateLookZoom(Entity<LookZoomComponent> uid, ref LookZoomActivated<GetEyeOffsetRelayedEvent> args)
+    public void UpdateLookZoom(Entity<EyeCursorOffsetComponent> uid, ref HeldRelayedEvent<GetEyeOffsetRelayedEvent> args)
     {
-        if (!_handsSystem.TryGetActiveItem(uid, out var item))
+        var localPlayer = _player.LocalPlayer?.ControlledEntity;
+        if (!TryComp<LookZoomComponent>(localPlayer, out var playerComp))
+            return;
+
+        if (playerComp.State == false)
             return;
 
         if (!TryComp<EyeCursorOffsetComponent>(uid, out var comp))
-            return;
-
-        if (!TryComp<EyeComponent>(uid, out var eye))
             return;
 
         var offset = _eyeOffset.OffsetAfterMouse(uid, null);
@@ -64,9 +69,4 @@ public sealed class LookZoomSystem : EntitySystem
 
         args.Args.Offset += offset.Value;
     }
-
-    [ByRefEvent]
-    public sealed class LookZoomActivated<TEvent> : EntityEventArgs
-    {
-        
 }
