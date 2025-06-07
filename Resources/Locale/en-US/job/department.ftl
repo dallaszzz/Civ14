@@ -16,3 +16,6 @@ department-German = Germany
 department-Soviet = Soviet Union
 department-US = United States
 department-SovietCW = Soviet Union
+department-Insurgents = Insurgents
+department-Blugoslavia = Blugoslavia
+department-UnitedNations = United Nations

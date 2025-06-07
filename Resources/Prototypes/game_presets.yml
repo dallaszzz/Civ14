@@ -37,3 +37,18 @@
     - CaptureAreaRuleAsymmetric
     - TeamDeathMatchRule
     - RandomWeatherRuleNightSnow
+
+- type: gamePreset
+  id: TDMValley
+  alias:
+    - tdm-valley
+  name: tdm-valley-title
+  showInVote: true
+  description: tdm-valley-description
+  rules:
+    - RespawnDeadRuleTDM
+    - GracewallRule
+    - ValleyPointsRule
+    - TeamDeathMatchRule
+    - RandomWeatherRule
+    - CaptureAreaRulePoints
