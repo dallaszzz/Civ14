@@ -58,6 +58,8 @@ The UN cannot "win" the scenario per se, but their own independent objectives ar
 
 ## The Map
 
+![Valley map](../images/valley.png)
+
 The Valley map is a rugged, desert mountainous region dotted with strategic locations that shape the conflict:
 
 -   **Teelekum Mountains**: A natural barrier with narrow passes, ideal for insurgent ambushes but challenging for Blugoslavian vehicles.
