@@ -36,7 +36,7 @@ public sealed partial class ValleyPointsComponent : Component
     /// Points awarded for killing a Blugoslavian soldier.
     /// </summary>
     [DataField]
-    public int KillPoints = 30;
+    public int KillPoints = 20;
 
     /// <summary>
     /// Points awarded for delivering a supply box.

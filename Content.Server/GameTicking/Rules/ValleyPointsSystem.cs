@@ -11,6 +11,7 @@ using Content.Shared.Hands.EntitySystems;
 using Robust.Shared.Timing;
 using Content.Server.KillTracking;
 using Content.Shared.NPC.Systems;
+using Content.Server.RoundEnd;
 
 
 namespace Content.Server.GameTicking.Rules;
@@ -27,7 +28,7 @@ public sealed class ValleyPointsRuleSystem : GameRuleSystem<ValleyPointsComponen
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-
+    [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
     [Dependency] private readonly NpcFactionSystem _factionSystem = default!; // Added dependency
     private ISawmill _sawmill = default!;
     private TimeSpan _lastSupplyBoxCheck = TimeSpan.Zero;
@@ -191,9 +192,13 @@ public sealed class ValleyPointsRuleSystem : GameRuleSystem<ValleyPointsComponen
 
         // Start securing timer
         valley.SecuringSupplyBoxes[supplyBox] = _timing.CurTime;
+        if (TryComp<ValleyCheckpointComponent>(checkpoint, out var checkpointComp))
+        {
+            checkpointComp.SecuringBoxes.Add(supplyBox);
+        }
 
         _sawmill.Info($"Supply box delivery started at {area.Name}, securing for {valley.SupplyBoxSecureTime} seconds");
-        AnnounceToAll($"Blugoslavia supply box delivery started at {area.Name}!");
+
     }
 
     private void ProcessInsurgentSupplyTheft(ValleyPointsComponent valley, EntityUid supplyBox, EntityUid baseArea, CaptureAreaComponent area)
@@ -349,19 +354,6 @@ public sealed class ValleyPointsRuleSystem : GameRuleSystem<ValleyPointsComponen
     }
 
     /// <summary>
-    /// Award points to Blugoslavia for delivering a supply box to a checkpoint.
-    /// </summary>
-    public void AwardSupplyBoxDelivery(EntityUid ruleEntity, EntityUid checkpoint, EntityUid supplyBox)
-    {
-        if (!TryComp<ValleyPointsComponent>(ruleEntity, out var valley))
-            return;
-
-        // Start securing timer
-        valley.SecuringSupplyBoxes[supplyBox] = _timing.CurTime;
-        _sawmill.Info($"Supply box delivery started at checkpoint, securing for {valley.SupplyBoxSecureTime} seconds");
-    }
-
-    /// <summary>
     /// Award points to insurgents for killing a Blugoslavian soldier.
     /// </summary>
     public void AwardInsurgentKill(EntityUid ruleEntity)
@@ -372,19 +364,6 @@ public sealed class ValleyPointsRuleSystem : GameRuleSystem<ValleyPointsComponen
         valley.InsurgentPoints += valley.KillPoints;
         _sawmill.Info($"Insurgents awarded {valley.KillPoints} points for kill. Total: {valley.InsurgentPoints}");
         AnnounceToAll($"Insurgents: +{valley.KillPoints} points (Kill) - Total: {valley.InsurgentPoints}");
-    }
-
-    /// <summary>
-    /// Award points to insurgents for stealing and delivering a supply box.
-    /// </summary>
-    public void AwardStolenSupplyBox(EntityUid ruleEntity)
-    {
-        if (!TryComp<ValleyPointsComponent>(ruleEntity, out var valley))
-            return;
-
-        valley.InsurgentPoints += valley.StolenSupplyBoxPoints;
-        _sawmill.Info($"Insurgents awarded {valley.StolenSupplyBoxPoints} points for stolen supply box. Total: {valley.InsurgentPoints}");
-        AnnounceToAll($"Insurgents: +{valley.StolenSupplyBoxPoints} points (Supply Theft) - Total: {valley.InsurgentPoints}");
     }
 
     /// <summary>
@@ -448,8 +427,7 @@ public sealed class ValleyPointsRuleSystem : GameRuleSystem<ValleyPointsComponen
         _sawmill.Info($"Valley gamemode ended: {finalMessage}");
         AnnounceToAll(finalMessage);
 
-        // Check UN objectives
-        AnnounceToAll(CheckUNObjectives(valley));
+        _roundEndSystem.EndRound();
     }
     private string CheckUNObjectives(ValleyPointsComponent valley)
     {

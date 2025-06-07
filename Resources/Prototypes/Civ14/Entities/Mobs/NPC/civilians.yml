@@ -21,7 +21,7 @@
     - type: MobMover
     - type: HTN
       rootTask:
-        task: SimpleHumanoidHostileCompound
+        task: IdleCompound
 
 - type: startingGear
   id: Civilian1
