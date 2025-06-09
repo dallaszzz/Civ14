@@ -153,3 +153,7 @@ tiles-dirt-floor-semiarid = dirt floor semiarid
 tiles-dirt-floor-desert = dirt floor desert
 tiles-dirt-floor-savanna = dirt floor savanna
 tiles-dirt-floor-jungle = dirt floor jungle
+tiles-dirt-floor-digged = dug dirt floor 1
+tiles-dirt-floor-digged2 = dug dirt floor 2
+tiles-dirt-floor-digged3 = dug dirt floor 3
+tiles-dirt-floor-rock = rocky dirt floor
