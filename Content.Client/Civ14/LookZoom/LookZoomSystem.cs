@@ -8,6 +8,9 @@ using Robust.Shared.Player;
 using Content.Shared.Hands.EntitySystems;
 using Robust.Shared.Timing;
 using Robust.Client.Player;
+using Robust.Shared.GameObjects;
+using System.Numerics;
+using Robust.Client.Timing;
 
 
 namespace Content.Client.Civ14.LookZoom;
@@ -17,6 +20,7 @@ public sealed class LookZoomSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IClientGameTiming _gameTiming = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -39,12 +43,24 @@ public sealed class LookZoomSystem : EntitySystem
             return;
 
         comp.DelayedTime = _timing.CurTime + TimeSpan.FromSeconds(1);
-        comp.State = !comp.State;
+
+        if (comp.State == false)
+        {
+            _handsSystem.TryGetActiveItem(uid.Value, out var item);
+            ResetOffset(uid);
+            ResetOffset(item);
+            comp.State = true;
+            return;
+        }
+        comp.State = false;
+
     }
     public void UpdateLookZoom(EntityUid uid, LookZoomComponent comp, ref GetEyeOffsetRelayedEvent args)
     {
         if (comp.State == false)
+        {
             return;
+        }
 
         _handsSystem.TryGetActiveItem(comp.Owner, out var item);
 
@@ -59,11 +75,19 @@ public sealed class LookZoomSystem : EntitySystem
 
     private void SetOffset(EntityUid uid, GetEyeOffsetRelayedEvent args)
     {
-
         var offset = _eyeOffset.OffsetAfterMouse(uid, null);
         if (offset == null)
             return;
 
         args.Offset += offset.Value;
+    }
+
+    private void ResetOffset(EntityUid? uid)
+    {
+        if (TryComp(uid, out EyeCursorOffsetComponent? cursorOffsetComp))
+        {
+            if (_gameTiming.IsFirstTimePredicted)
+                cursorOffsetComp.CurrentPosition = Vector2.Zero;
+        }
     }
 }
