@@ -42,7 +42,7 @@ public sealed class LookZoomSystem : EntitySystem
         if (_timing.CurTime < comp.DelayedTime)
             return;
 
-        comp.DelayedTime = _timing.CurTime + TimeSpan.FromSeconds(1);
+        comp.DelayedTime = _timing.CurTime + TimeSpan.FromSeconds(0.1);
 
         if (comp.State == false)
         {
