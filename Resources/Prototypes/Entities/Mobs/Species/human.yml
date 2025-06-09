@@ -32,6 +32,8 @@
     - type: ShowAntagIcons
     - type: ShowSyndicateIcons
     - type: SleepZone
+    - type: LookZoom #civ14
+    - type: EyeCursorOffset #civ14
     - type: Inventory
       femaleDisplacements:
         jumpsuit:
