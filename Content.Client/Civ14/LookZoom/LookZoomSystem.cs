@@ -34,14 +34,17 @@ public sealed class LookZoomSystem : EntitySystem
 
     public void OnLookZoomHandler(ICommonSession? session)
     {
+        // Gets the player character uid
         var uid = session?.AttachedEntity;
 
         if (!TryComp<LookZoomComponent>(uid, out var comp))
             return;
 
+        // Checks if the cooldown is over by comparing to the current time
         if (_timing.CurTime < comp.DelayedTime)
             return;
 
+        // Sets the cooldown to the current time + 0.1 seconds
         comp.DelayedTime = _timing.CurTime + TimeSpan.FromSeconds(0.1);
 
         if (comp.State == false)
@@ -53,7 +56,6 @@ public sealed class LookZoomSystem : EntitySystem
             return;
         }
         comp.State = false;
-
     }
     public void UpdateLookZoom(EntityUid uid, LookZoomComponent comp, ref GetEyeOffsetRelayedEvent args)
     {
@@ -64,12 +66,14 @@ public sealed class LookZoomSystem : EntitySystem
 
         _handsSystem.TryGetActiveItem(comp.Owner, out var item);
 
+        // Sets the offset if there is an item in the active hand with the EyeCurserOffset component
         if (item != null && TryComp<EyeCursorOffsetComponent>(item, out var itemComp))
         {
             SetOffset(item.Value, args);
             return;
         }
 
+        //Sets the offset using the EyeCurserOffset on the player entity instead
         SetOffset(comp.Owner, args);
     }
 
