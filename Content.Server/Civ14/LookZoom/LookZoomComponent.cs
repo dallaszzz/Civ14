@@ -1,4 +1,4 @@
-namespace Content.Client.Civ14.LookZoom;
+namespace Content.Server.Civ14.LookZoom;
 
 [RegisterComponent]
 public sealed partial class LookZoomComponent : Component
