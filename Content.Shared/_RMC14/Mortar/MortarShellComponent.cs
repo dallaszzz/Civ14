@@ -10,11 +10,11 @@ public sealed partial class MortarShellComponent : Component
     public TimeSpan LoadDelay = TimeSpan.FromSeconds(1.5);
 
     [DataField, AutoNetworkedField]
-    public TimeSpan TravelDelay = TimeSpan.FromSeconds(8); //used to be 4.5
+    public TimeSpan TravelDelay = TimeSpan.FromSeconds(8);
 
     [DataField, AutoNetworkedField]
-    public TimeSpan ImpactWarningDelay = TimeSpan.FromSeconds(2.5);
+    public TimeSpan ImpactWarningDelay = TimeSpan.FromSeconds(1.3);
 
     [DataField, AutoNetworkedField]
-    public TimeSpan ImpactDelay = TimeSpan.FromSeconds(4.5);
+    public TimeSpan ImpactDelay = TimeSpan.FromSeconds(1.3);
 }

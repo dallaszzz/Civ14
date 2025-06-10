@@ -22,7 +22,7 @@
     - type: RespawnDeadRule
       alwaysRespawnDead: true
     - type: RespawnTracker
-      respawnDelay: 120
+      respawnDelay: 180
       deleteBody: false
 # A fixed timer where all reinforcements are spawned at the same time.
 - type: entity
@@ -93,6 +93,14 @@
       defenderFactionName: SovietCW
 
 - type: entity
+  parent: BaseGameRule
+  id: CaptureAreaRulePoints
+  components:
+    - type: CaptureAreaRule
+      mode: Points
+      pointsFactionName1: Blugoslavia
+
+- type: entity
   id: TeamDeathMatchRule
   parent: BaseGameRule
   components:
@@ -118,3 +126,9 @@
     - type: RandomWeatherRule
       allowedWeathers: ["SnowfallLight"]
       dayTimes: ["Night"]
+
+- type: entity
+  parent: BaseGameRule
+  id: ValleyPointsRule
+  components:
+    - type: ValleyPoints
