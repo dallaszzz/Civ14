@@ -1062,6 +1062,17 @@
       material: Cloth
       time: 5
 - type: entity
+  name: UN PASGT body armor
+  parent: civ13_accessory_woodland_PASGT_body_armor
+  id: civ13_accessory_un_PASGT_body_armor
+  description: Wearable armor that can stop most pistol rounds. This one is blue colored for use by the UN.
+  components:
+    - type: Sprite
+      sprite: Civ14/Clothing/exported/ties/pasgt_un.rsi
+    - type: Clothing
+      sprite: Civ14/Clothing/exported/ties/pasgt_un.rsi
+
+- type: entity
   name: red tie
   parent: ClothingNeckBase
   id: civ13_accessory_red_tie
@@ -3767,7 +3778,7 @@
   id: civ13_accessory_N34_B_body_armor
   description: >-
     A modern piece of Blugoslavian armor introduced in 2023, made fully out of
-    kevlar while also having some space left for plate inserts
+    kevlar while also having some space left for plate inserts.
   components:
     - type: Sprite
       sprite: Civ14/Clothing/exported/ties/n34bm.rsi
@@ -3778,15 +3789,9 @@
         coefficients:
           Blunt: 0.55
           Slash: 0.55
-          Piercing: 0.45
-          Arrow: 0.35
-          Heat: 0.7
-    - type: Construction
-      graph: civ13_accessory_N34_B_body_armor
-      node: end
-      cost: 5
-      material: Cloth
-      time: 5
+          Piercing: 0.55
+          Arrow: 0.3
+          Heat: 0.78
 - type: entity
   name: N34-BM body armor
   parent: civ13_accessory_N34_B_body_armor
@@ -3799,12 +3804,7 @@
       sprite: Civ14/Clothing/exported/ties/n34bmm.rsi
     - type: Clothing
       sprite: Civ14/Clothing/exported/ties/n34bmm.rsi
-    - type: Construction
-      graph: civ13_accessory_N34_BM_body_armor
-      node: end
-      cost: 5
-      material: Cloth
-      time: 5
+
 - type: entity
   name: black Interceptor Body Armor
   parent: ClothingNeckBase
