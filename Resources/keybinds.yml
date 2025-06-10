@@ -182,7 +182,8 @@ binds:
     key: Z
   - function: AltActivateItemInHand
     type: State
-    key: Space
+    key: E
+    mod1: Control
   - function: OpenCharacterMenu
     type: State
     key: C
